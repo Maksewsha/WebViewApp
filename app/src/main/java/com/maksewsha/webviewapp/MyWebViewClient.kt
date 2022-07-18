@@ -14,7 +14,6 @@ class MyWebViewClient : WebViewClient() {
     override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
         val str = request!!.url.toString()
         if (str.contains("yandex.ru/maps")) {
-            val uri = Uri.parse("yandexmaps://maps.yandex.ru/?${str.substringAfter("maps/")}")
             val intent = view!!.context.packageManager.getLaunchIntentForPackage("ru.yandex.maps")
             addition(intent, view, str)
         } else if (str.contains("yandex.ru/pogoda")){
